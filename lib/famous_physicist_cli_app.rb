@@ -1,5 +1,2 @@
-require "famous_physicist_cli_app/version"
-
-module FamousPhysicistCliApp
-  # Your code goes here...
-end
+require_relative "famous_physicist_cli_app/version"
+require_relative "famous_physicist_cli_app/cli"
