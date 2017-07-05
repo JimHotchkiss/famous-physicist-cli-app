@@ -1,2 +1,4 @@
-require_relative "famous_physicist_cli_app/version"
-require_relative "famous_physicist_cli_app/cli"
+module FamousPhysicistCliApp
+end
+
+require_relative '../config/environment'
