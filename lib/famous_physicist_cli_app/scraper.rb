@@ -2,7 +2,7 @@ require 'pry'
 class Scraper
 
   def get_page
-    Nokogiri::HTML(open("http://www.thefamouspeople.com/physicists.php"))
+    doc = Nokogiri::HTML(open("http://www.thefamouspeople.com/physicists.php"))
   end
 
   def scrape_page_index
@@ -10,6 +10,6 @@ class Scraper
       physicists_name = index.text
       binding.pry
     end
-  end 
+  end
 
 end
