@@ -1,7 +1,10 @@
-class FamousPhysicistCliApp::CLI
+require 'pry'
+class CLI
 
   def call
+    Scraper.new
     puts "********** Welcome to Famous Physicists! **********"
+    #binding.pry
     sleep(1.5)
     puts "What country would you like"
     user_input = gets.strip
