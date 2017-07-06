@@ -8,21 +8,18 @@ class FamousPhysicistCliApp::CLI
 
          "
 
-     list_names
+     FamousPhysicistCliApp::Scraper.new.list_names
      sleep(0.50)
      user_pick
      sleep(0.50)
-     FamousPhysicistCliApp::Scraper.new.name
+     FamousPhysicistCliApp::Scraper.new.create_from_index
      details
+
      sleep(0.50)
      another_pick
      sleep(0.5)
      finish
 
-  end
-
-  def list_names
-    FamousPhysicistCliApp::Scraper.new.list_names
   end
 
   def user_pick
@@ -32,6 +29,7 @@ class FamousPhysicistCliApp::CLI
     if user_input == 1
     # So if user types "1" they get all the details of that object
     new_physicist = FamousPhysicistCliApp::Physicists.new
+    binding.pry
       puts "Albert Einstein"
     elsif user_input == 2
       puts "Niels Bohr"
@@ -51,7 +49,6 @@ class FamousPhysicistCliApp::CLI
     if user_input == 'y'
       call
     else
-      finish
     end
   end
 

@@ -32,7 +32,7 @@ class FamousPhysicistCliApp::Scraper
     url_array
   end
 
-  def name
+  def create_from_index
     profile_url.each do |profile|
       doc = Nokogiri::HTML(open(profile))
       name = doc.css('div.hfeed').css('h1').text.strip
@@ -43,9 +43,10 @@ class FamousPhysicistCliApp::Scraper
       nationality_heading = doc.css('table.basicinfo').css('tr')[2].text
       nationality = nationality_heading.split(' ')[1..-1].join(' ')
       famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
+      profile = famous_for = doc.css('div.entry').css('p').text
 
 #when I puts this out "...was #{birth}" this way it will start with 'born'
-binding.pry
+#binding.pry
     end
   end
 

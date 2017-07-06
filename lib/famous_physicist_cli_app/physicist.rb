@@ -3,6 +3,9 @@ class FamousPhysicistCliApp::Physicists
 
   @@all = Array.new
 
+  def create_from_index(items)
+
+
   def initialize(name=nil, famous_for=nil, profile=nil,accomplishments=nil)
     @name =            name
     @famous_for =      famous_for
