@@ -12,8 +12,8 @@ class FamousPhysicistCliApp::CLI
      sleep(0.50)
      user_pick
      sleep(0.50)
-     var = FamousPhysicistCliApp::Scraper.new.make_physicist
-binding.pry 
+     var = FamousPhysicistCliApp::Scraper.new.profile_url
+binding.pry
      details
      sleep(0.50)
      another_pick
@@ -33,7 +33,6 @@ binding.pry
     if user_input == 1
     # So if user types "1" they get all the details of that object
     new_physicist = FamousPhysicistCliApp::Physicists.new
-binding.pry
       puts "Albert Einstein"
     elsif user_input == 2
       puts "Niels Bohr"

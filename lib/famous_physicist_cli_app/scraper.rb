@@ -22,9 +22,15 @@ class FamousPhysicistCliApp::Scraper
     end
   end
 
-  def make_physicist
-    var = get_page.css('table.toplist').css('a').attr('href')
-    #This works.  This returns a link.  However, I need all of the links.  
+  def profile_url 
+    array = Array.new
+
+    get_page.css('table.toplist').css('a').each do |link|
+    profile_url = link.attr('href')
+    array.push(profile_url)
+    end
+    array
+binding.pry 
   end
 
 end
