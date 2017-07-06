@@ -26,6 +26,16 @@ class FamousPhysicistCliApp::CLI
 
   def user_pick
     puts 'Pick a physicist'
+    user_input = gets.strip.to_i
+    # Here, I imagine iterating through list
+    if user_input == 1
+      puts "Albert Einstein"
+    elsif user_input == 2
+      puts "Niels Bohr"
+    else
+      puts "Sorry, I didn't understand that."
+      user_pick
+    end
   end
 
   def details
@@ -33,7 +43,12 @@ class FamousPhysicistCliApp::CLI
   end
 
   def another_pick
-    puts 'Would you like another pick?'
+    puts 'Would you like another pick, Y/n?'
+    user_input = gets.strip.downcase
+    if user_input == 'y'
+      call
+    else
+    end
   end
 
   def finish
