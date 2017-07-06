@@ -20,7 +20,11 @@ class FamousPhysicistCliApp::Scraper
     puts "#{count+=1}. #{each_physicists}"
     sleep(0.25)
     end
+  end
 
+  def make_physicist
+    var = get_page.css('table.toplist').css('a').attr('href')
+    #This works.  This returns a link.  However, I need all of the links.  
   end
 
 end
