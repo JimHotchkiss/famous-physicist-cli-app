@@ -2,4 +2,4 @@
 
 require_relative '../lib/famous_physicist_cli_app/'
 
-CLI.new.call
+FamousPhysicistCliApp::CLI.new.call
