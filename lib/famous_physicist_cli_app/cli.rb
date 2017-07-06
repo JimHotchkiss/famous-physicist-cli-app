@@ -3,13 +3,14 @@ class CLI
 
   def call
 
-    count = 0
+    puts "
 
-    puts "********** Welcome to Famous Physicists! **********"
+     ********** The 20 Most Famous Physicists! **********"
     sleep(1.5)
-    puts "What country would you like"
-    user_input = gets.strip
 
-    Scraper.new.get_page.list_names
+    new = Scraper.new
+    binding.pry
+
+  end
 
 end
