@@ -36,11 +36,13 @@ class FamousPhysicistCliApp::Scraper
     profile_url.each do |profile|
       doc = Nokogiri::HTML(open(profile))
       name = doc.css('div.hfeed').css('h1').text.strip
-      birth = doc.css('table.basicinfo').css('tr')[0].text
-      died = birth = doc.css('table.basicinfo').css('tr')[1].text
-      nationality = doc.css('table.basicinfo').css('tr')[2].text
+      birth_heading = doc.css('table.basicinfo').css('tr')[0].text
+      birth = birth_heading.split(' ')[1..-1].join(' ')
+      died_heading = doc.css('table.basicinfo').css('tr')[1].text
+      died = died_heading.split(' ')[1..-1].join(' ')
+      nationality_heading = doc.css('table.basicinfo').css('tr')[2].text
+      nationality = nationality_heading.split(' ')[1..-1].join(' ')
       famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
-
 
 #when I puts this out "...was #{birth}" this way it will start with 'born'
 binding.pry

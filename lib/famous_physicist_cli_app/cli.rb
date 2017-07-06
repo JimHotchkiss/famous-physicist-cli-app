@@ -51,6 +51,7 @@ class FamousPhysicistCliApp::CLI
     if user_input == 'y'
       call
     else
+      finish
     end
   end
 
