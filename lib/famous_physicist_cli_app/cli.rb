@@ -12,8 +12,7 @@ class FamousPhysicistCliApp::CLI
      sleep(0.50)
      user_pick
      sleep(0.50)
-     var = FamousPhysicistCliApp::Scraper.new.profile_url
-binding.pry
+     FamousPhysicistCliApp::Scraper.new.name
      details
      sleep(0.50)
      another_pick

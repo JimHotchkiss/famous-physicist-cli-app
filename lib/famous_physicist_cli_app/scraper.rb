@@ -22,15 +22,29 @@ class FamousPhysicistCliApp::Scraper
     end
   end
 
-  def profile_url 
-    array = Array.new
+  def profile_url
+    url_array = Array.new
 
     get_page.css('table.toplist').css('a').each do |link|
     profile_url = link.attr('href')
-    array.push(profile_url)
+    url_array.push(profile_url)
     end
-    array
-binding.pry 
+    url_array
+  end
+
+  def name
+    profile_url.each do |profile|
+      doc = Nokogiri::HTML(open(profile))
+      name = doc.css('div.hfeed').css('h1').text.strip
+      birth = doc.css('table.basicinfo').css('tr')[0].text
+      died = birth = doc.css('table.basicinfo').css('tr')[1].text
+      nationality = doc.css('table.basicinfo').css('tr')[2].text
+      famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
+
+
+#when I puts this out "...was #{birth}" this way it will start with 'born'
+binding.pry
+    end
   end
 
 end
