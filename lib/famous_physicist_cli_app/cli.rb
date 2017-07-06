@@ -8,7 +8,7 @@ class FamousPhysicistCliApp::CLI
 
          "
 
-     list
+     list_names
      sleep(0.50)
      user_pick
      sleep(0.50)
@@ -20,15 +20,16 @@ class FamousPhysicistCliApp::CLI
 
   end
 
-  def list
-    puts 'Names of physicist!'
+  def list_names
+    FamousPhysicistCliApp::Scraper.new.list_names
   end
 
   def user_pick
     puts 'Pick a physicist'
     user_input = gets.strip.to_i
-    # Here, I imagine iterating through list
+    # Here is where I need to call on the 'made' physicist
     if user_input == 1
+    # So if user types "1" they get all the details of that object
       puts "Albert Einstein"
     elsif user_input == 2
       puts "Niels Bohr"
