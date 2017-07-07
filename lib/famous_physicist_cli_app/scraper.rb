@@ -53,6 +53,7 @@ class FamousPhysicistCliApp::Scraper
   def create_from_index
     profile_url.each do |profile|
       doc = Nokogiri::HTML(open(profile))
+      binding.pry #I think I can use this for the Physicist class
       name = doc.css('div.hfeed').css('h1').text.strip
       birth_heading = doc.css('table.basicinfo').css('tr')[0].text
       birth = birth_heading.split(' ')[1..-1].join(' ')
