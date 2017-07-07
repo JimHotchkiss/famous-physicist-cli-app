@@ -8,11 +8,25 @@ class FamousPhysicistCliApp::CLI
 
          "
 
-     FamousPhysicistCliApp::Scraper.new.list_names
+     FamousPhysicistCliApp::Scraper.new.prints_names
      sleep(0.50)
-     user_pick
+
+     puts ""
+     puts 'Pick a physicist'
+     user_input = gets.strip.to_i
      sleep(0.50)
-     FamousPhysicistCliApp::Scraper.new.create_from_index
+
+     physicists = FamousPhysicistCliApp::Scraper.new.find(user_input)
+     puts "----------#{physicists}----------"
+
+     puts ""
+     puts 'Can you guess ' "#{physicists}" " nationality?"
+
+     sleep(0.5)
+     puts ""
+     puts 'Would you like to know? Y/n.'
+     user_input = gets.strip.downcase
+
      details
 
      sleep(0.50)
@@ -22,22 +36,22 @@ class FamousPhysicistCliApp::CLI
 
   end
 
-  def user_pick
-    puts 'Pick a physicist'
-    user_input = gets.strip.to_i
+  #def user_pick
+    #puts 'Pick a physicist'
+    #user_input = gets.strip.to_i
     # Here is where I need to call on the 'made' physicist
-    if user_input == 1
+    #if user_input == 1
     # So if user types "1" they get all the details of that object
-    new_physicist = FamousPhysicistCliApp::Physicists.new
-    binding.pry
-      puts "Albert Einstein"
-    elsif user_input == 2
-      puts "Niels Bohr"
-    else
-      puts "Sorry, I didn't understand that."
-      user_pick
-    end
-  end
+  #  new_physicist = FamousPhysicistCliApp::Physicists.new
+    #binding.pry
+    #  puts "Albert Einstein"
+    #elsif user_input == 2
+    #  puts "Niels Bohr"
+    #else
+    #  puts "Sorry, I didn't understand that."
+      #user_pick
+    #end
+  #end
 
   def details
     puts 'Details'
@@ -48,7 +62,7 @@ class FamousPhysicistCliApp::CLI
     user_input = gets.strip.downcase
     if user_input == 'y'
       call
-    else
+    elsif user_input == 'n'
     end
   end
 

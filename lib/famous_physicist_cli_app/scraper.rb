@@ -6,17 +6,19 @@ class FamousPhysicistCliApp::Scraper
     Nokogiri::HTML(open("http://famousphysicists.org/"))
   end
 
-  def list_names
-    count = 0
-
+  def collects_names
     physicists_array = Array.new
     names = get_page.css('a').css('strong') #this returns an array of names
 
     names.each_with_index do |name|
     physicists_array.push(name.text)
     end
+    physicists_array
+  end
 
-    physicists_array.each do |each_physicists|
+  def prints_names
+    count = 0
+    collects_names.each do |each_physicists|
     puts "#{count+=1}. #{each_physicists}"
     sleep(0.25)
     end
@@ -30,6 +32,10 @@ class FamousPhysicistCliApp::Scraper
     url_array.push(profile_url)
     end
     url_array
+  end
+
+  def find(user_input)
+    collects_names[user_input-1]
   end
 
   def create_from_index

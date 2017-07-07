@@ -3,7 +3,11 @@ class FamousPhysicistCliApp::Physicists
 
   @@all = Array.new
 
-  def create_from_index(items)
+  #def self.create_from_index(r)
+  #  self.new(
+  #  self.create_from_index
+  #  )
+  #end
 
 
   def initialize(name=nil, famous_for=nil, profile=nil,accomplishments=nil)
@@ -12,6 +16,10 @@ class FamousPhysicistCliApp::Physicists
     @profile =         profile
     @accomplishments = accomplishments
     @@all << self #this is pushing each instantiated obj into array
+  end
+
+  def find(input)
+    self.physicists_array[input-1]
   end
 
   def all
