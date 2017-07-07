@@ -9,7 +9,6 @@ class FamousPhysicistCliApp::Scraper
   def collects_names
     physicists_array = Array.new
     names = get_page.css('a').css('strong') #this returns an array of names
-
     names.each_with_index do |name|
     physicists_array.push(name.text)
     end
@@ -22,6 +21,13 @@ class FamousPhysicistCliApp::Scraper
     puts "#{count+=1}. #{each_physicists}"
     sleep(0.25)
     end
+  end
+
+  def scrape_index
+    get_page.css('td').each do |index|
+
+binding.pry
+    end 
   end
 
   def profile_url
@@ -37,7 +43,7 @@ class FamousPhysicistCliApp::Scraper
   def find(user_input)
     collects_names[user_input-1]
   end
-
+#I can pull from index page, name, famous for, bio
   def create_from_index
     profile_url.each do |profile|
       doc = Nokogiri::HTML(open(profile))
@@ -50,7 +56,6 @@ class FamousPhysicistCliApp::Scraper
       nationality = nationality_heading.split(' ')[1..-1].join(' ')
       famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
       profile = famous_for = doc.css('div.entry').css('p').text
-
 #when I puts this out "...was #{birth}" this way it will start with 'born'
 #binding.pry
     end

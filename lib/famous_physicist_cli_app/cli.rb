@@ -7,7 +7,7 @@ class FamousPhysicistCliApp::CLI
      ********** The 20 Most Famous Physicists! **********
 
          "
-
+     FamousPhysicistCliApp::Scraper.new.scrape_index
      FamousPhysicistCliApp::Scraper.new.prints_names
      sleep(0.50)
 
