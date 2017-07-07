@@ -1,5 +1,3 @@
-require 'pry'
-
 class FamousPhysicistCliApp::Scraper
 
   def get_page
@@ -26,7 +24,7 @@ class FamousPhysicistCliApp::Scraper
   def scrape_index
     get_page.css('td').each do |index|
       name = index.css('a strong').text
-      #famous_for = index.css('em').text
+      famous_for = index.css('em').text
     end
   end
 
@@ -43,7 +41,11 @@ class FamousPhysicistCliApp::Scraper
   def find(user_input)
     collects_names[user_input-1]
   end
-#I can pull from index page, name, famous for, bio
+
+  def find_profile_page(user_input)
+    create_from_index[user_input-1]
+  end
+
   def create_from_index
     profile_url.each do |profile|
       doc = Nokogiri::HTML(open(profile))
@@ -56,8 +58,6 @@ class FamousPhysicistCliApp::Scraper
       nationality = nationality_heading.split(' ')[1..-1].join(' ')
       famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
       profile = famous_for = doc.css('div.entry').css('p').text
-#when I puts this out "...was #{birth}" this way it will start with 'born'
-#binding.pry
     end
   end
 

@@ -7,30 +7,32 @@ class FamousPhysicistCliApp::CLI
      ********** The 20 Most Famous Physicists! **********
 
          "
-     FamousPhysicistCliApp::Physicists.new
-     binding.pry
-     FamousPhysicistCliApp::Scraper.new.scrape_index
+
+
      FamousPhysicistCliApp::Scraper.new.prints_names
      sleep(0.50)
 
      puts ""
      puts 'Pick a physicist'
      user_input = gets.strip.to_i
-     sleep(0.50)
+     #sleep(0.50)
 
 
      physicists = FamousPhysicistCliApp::Scraper.new.find(user_input)
-     puts "----------#{physicists}----------"
+     page_profile = FamousPhysicistCliApp::Scraper.new.find_profile_page(user_input)
 
+     puts "         Physicists:    #{physicists}"
+
+     puts "         Profile Page:  #{page_profile}"
      puts ""
-     puts 'Can you guess ' "#{physicists}" " nationality?"
-
      sleep(0.5)
-     puts ""
-     puts 'Would you like to know? Y/n.'
+
+     puts "Would you like to learn more about #{physicists}? Y/n"
      user_input = gets.strip.downcase
 
-     details
+     bio = 
+
+     #details
 
      sleep(0.50)
      another_pick
@@ -39,25 +41,13 @@ class FamousPhysicistCliApp::CLI
 
   end
 
-  #def user_pick
-    #puts 'Pick a physicist'
-    #user_input = gets.strip.to_i
-    # Here is where I need to call on the 'made' physicist
-    #if user_input == 1
-    # So if user types "1" they get all the details of that object
-  #  new_physicist = FamousPhysicistCliApp::Physicists.new
-    #binding.pry
-    #  puts "Albert Einstein"
-    #elsif user_input == 2
-    #  puts "Niels Bohr"
-    #else
-    #  puts "Sorry, I didn't understand that."
-      #user_pick
-    #end
-  #end
 
   def details
-    puts 'Details'
+    FamousPhysicistCliApp::Scraper.new.create_from_index.each do |profile_page|
+      puts "#{profile_page}"
+    end
+#binding.pry
+
   end
 
   def another_pick
