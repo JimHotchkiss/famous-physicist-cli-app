@@ -46,6 +46,10 @@ class FamousPhysicistCliApp::Scraper
     create_from_index[user_input-1]
   end
 
+  def find_bio(user_input)
+    bio[user_input-1]
+  end
+
   def create_from_index
     profile_url.each do |profile|
       doc = Nokogiri::HTML(open(profile))
@@ -57,8 +61,16 @@ class FamousPhysicistCliApp::Scraper
       nationality_heading = doc.css('table.basicinfo').css('tr')[2].text
       nationality = nationality_heading.split(' ')[1..-1].join(' ')
       famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
-      profile = famous_for = doc.css('div.entry').css('p').text
+      profile = doc.css('div.entry').css('p').text
     end
+  end
+
+  def bio
+    bio_array = Array.new
+    profile_url.each do |profile|
+       bio_array.push(Nokogiri::HTML(open(profile)).css('div.entry').css('p').text)
+    end
+    bio_array
   end
 
 end

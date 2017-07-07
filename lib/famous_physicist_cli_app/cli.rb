@@ -8,7 +8,7 @@ class FamousPhysicistCliApp::CLI
 
          "
 
-
+     FamousPhysicistCliApp::Scraper.new.bio
      FamousPhysicistCliApp::Scraper.new.prints_names
      sleep(0.50)
 
@@ -17,10 +17,13 @@ class FamousPhysicistCliApp::CLI
      user_input = gets.strip.to_i
      #sleep(0.50)
 
-
      physicists = FamousPhysicistCliApp::Scraper.new.find(user_input)
      page_profile = FamousPhysicistCliApp::Scraper.new.find_profile_page(user_input)
+     bio = FamousPhysicistCliApp::Scraper.new.find_bio(user_input)
 
+     puts "*****************************************************************************************************************************************"
+     puts "
+          "
      puts "         Physicists:    #{physicists}"
 
      puts "         Profile Page:  #{page_profile}"
@@ -30,7 +33,10 @@ class FamousPhysicistCliApp::CLI
      puts "Would you like to learn more about #{physicists}? Y/n"
      user_input = gets.strip.downcase
 
-     bio = 
+     if user_input =="y"
+       puts "#{bio}"
+     end
+
 
      #details
 
