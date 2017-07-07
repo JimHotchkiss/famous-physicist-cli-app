@@ -25,9 +25,9 @@ class FamousPhysicistCliApp::Scraper
 
   def scrape_index
     get_page.css('td').each do |index|
-
-binding.pry
-    end 
+      name = index.css('a strong').text
+      #famous_for = index.css('em').text
+    end
   end
 
   def profile_url

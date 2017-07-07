@@ -7,6 +7,8 @@ class FamousPhysicistCliApp::CLI
      ********** The 20 Most Famous Physicists! **********
 
          "
+     FamousPhysicistCliApp::Physicists.new
+     binding.pry
      FamousPhysicistCliApp::Scraper.new.scrape_index
      FamousPhysicistCliApp::Scraper.new.prints_names
      sleep(0.50)
@@ -15,6 +17,7 @@ class FamousPhysicistCliApp::CLI
      puts 'Pick a physicist'
      user_input = gets.strip.to_i
      sleep(0.50)
+
 
      physicists = FamousPhysicistCliApp::Scraper.new.find(user_input)
      puts "----------#{physicists}----------"
