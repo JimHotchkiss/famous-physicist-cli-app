@@ -7,8 +7,9 @@ class FamousPhysicistCliApp::Physicists
 
   def self.new_from_index_page(doc)
     self.new(
-    doc.css('div.hfeed').css('h1').text.strip,
-    doc.css('table.basicinfo').css('tr')[3].text.strip,
+    doc.css('div.hfeed').css('h1').text.strip, #name
+    doc.css('table.basicinfo').css('tr')[3].text.strip, #famous_for
+    "http://famousphysicists.org#{doc.css('table.toplist').css('a').text}" #url
     )
   end
 
@@ -22,14 +23,21 @@ class FamousPhysicistCliApp::Physicists
 
   def self.find(user_input)
     self.all[user_input-1]
+    binding.pry
   end
 
   def self.all
     @@all
   end
 
-  def profile_url
-    FamousPhysicistCliApp::Scraper.profile_url
-  end
+  #def profile
+  #  @profile ||= doc.css('div.entry').css('p').text
+    #binding.pry
+  #end
+
+  #def doc
+  #  @doc ||= Nokogiri::HTML(open(self.url))
+  #end
+
 
 end

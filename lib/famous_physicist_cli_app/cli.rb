@@ -20,15 +20,12 @@ class FamousPhysicistCliApp::CLI
 
      physicists = FamousPhysicistCliApp::Physicists.find(user_input)
 
-     #page_profile = FamousPhysicistCliApp::Scraper.new.find_profile_page(user_input)
-     #bio = FamousPhysicistCliApp::Scraper.new.find_bio(user_input)
-
      puts "*****************************************************************************************************************************************"
      puts "
           "
      puts "Physicists: #{physicists.name}"
 
-     puts "#{physicists.famous_for }"
+     puts sprintf("#{physicists.famous_for}")
      puts ""
      sleep(0.5)
 
