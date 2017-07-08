@@ -1,12 +1,23 @@
+#require 'pry'
 class FamousPhysicistCliApp::Physicists
 
   attr_accessor :name, :famous_for, :profile, :accomplishments, :birth, :death
 
   @@all = Array.new
 
-  def initialize(name=nil, famous_for=nil)
-    @name =       name
+  def self.new_from_index_page(doc)
+    self.new(
+    doc.css('div.hfeed').css('h1').text.strip,
+    doc.css('table.basicinfo').css('tr')[3].text.strip,
+    )
+  end
+
+  def initialize(name='scientist', famous_for='great things', url=nil)
+    @name       = name
     @famous_for = famous_for
+    @url        = url
+    @@all.push(self)
+binding.pry
   end
 
 
@@ -19,8 +30,8 @@ class FamousPhysicistCliApp::Physicists
   end
 
   def profile_url
-    x = FamousPhysicistCliApp::Scraper.profile_url
-binding.pry 
+    FamousPhysicistCliApp::Scraper.profile_url
+binding.pry
   end
 
 end

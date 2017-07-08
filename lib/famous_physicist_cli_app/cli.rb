@@ -2,6 +2,9 @@ require 'pry'
 class FamousPhysicistCliApp::CLI
 
   def call
+    FamousPhysicistCliApp::Physicists.new
+    #FamousPhysicistCliApp::Physicists.new_from_index_page(doc)
+
     puts "
 
      ********** The 20 Most Famous Physicists! **********

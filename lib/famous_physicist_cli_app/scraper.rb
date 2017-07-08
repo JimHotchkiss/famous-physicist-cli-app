@@ -23,6 +23,7 @@ class FamousPhysicistCliApp::Scraper
 
   def scrape_index
     get_page.css('td').each do |index|
+binding.pry
       name = index.css('a strong').text
       famous_for = index.css('em').text
     end
@@ -43,28 +44,33 @@ class FamousPhysicistCliApp::Scraper
   end
 
   def find_profile_page(user_input)
-    create_from_index[user_input-1]
+    make_physicists[user_input-1]
   end
 
   def find_bio(user_input)
     bio[user_input-1]
   end
 
-  def create_from_index
+#Open_profile method and create physicists
+  def make_physicists
     profile_url.each do |profile|
       doc = Nokogiri::HTML(open(profile))
-      binding.pry #I think I can use this for the Physicist class
-      name = doc.css('div.hfeed').css('h1').text.strip
-      birth_heading = doc.css('table.basicinfo').css('tr')[0].text
-      birth = birth_heading.split(' ')[1..-1].join(' ')
-      died_heading = doc.css('table.basicinfo').css('tr')[1].text
-      died = died_heading.split(' ')[1..-1].join(' ')
-      nationality_heading = doc.css('table.basicinfo').css('tr')[2].text
-      nationality = nationality_heading.split(' ')[1..-1].join(' ')
-      famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
-      profile = doc.css('div.entry').css('p').text
+      FamousPhysicistCliApp::Physicists.new_from_index_page(doc)
     end
   end
+
+
+      #name = doc.css('div.hfeed').css('h1').text.strip
+      #birth_heading = doc.css('table.basicinfo').css('tr')[0].text
+      #birth = birth_heading.split(' ')[1..-1].join(' ')
+      #died_heading = doc.css('table.basicinfo').css('tr')[1].text
+      #died = died_heading.split(' ')[1..-1].join(' ')
+      #nationality_heading = doc.css('table.basicinfo').css('tr')[2].text
+      #nationality = nationality_heading.split(' ')[1..-1].join(' ')
+      #famous_for = doc.css('table.basicinfo').css('tr')[3].text.strip
+      #profile = doc.css('div.entry').css('p').text
+    #end
+  #end
 
   def bio
     bio_array = Array.new
