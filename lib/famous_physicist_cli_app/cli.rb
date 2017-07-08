@@ -10,7 +10,7 @@ class FamousPhysicistCliApp::CLI
      ********** The 20 Most Famous Physicists! **********
 
          "
-
+     FamousPhysicistCliApp::Scraper.new.make_physicists
      FamousPhysicistCliApp::Scraper.new.prints_names
      sleep(0.50)
 
@@ -20,7 +20,7 @@ class FamousPhysicistCliApp::CLI
      #sleep(0.50)
 
      physicists = FamousPhysicistCliApp::Physicists.find(user_input)
-     binding.pry 
+     
      #page_profile = FamousPhysicistCliApp::Scraper.new.find_profile_page(user_input)
      #bio = FamousPhysicistCliApp::Scraper.new.find_bio(user_input)
 

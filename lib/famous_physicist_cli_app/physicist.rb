@@ -22,7 +22,6 @@ class FamousPhysicistCliApp::Physicists
 
   def self.find(user_input)
     self.all[user_input-1]
-    binding.pry 
   end
 
   def self.all
@@ -31,7 +30,6 @@ class FamousPhysicistCliApp::Physicists
 
   def profile_url
     FamousPhysicistCliApp::Scraper.profile_url
-binding.pry
   end
 
 end
