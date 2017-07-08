@@ -2,7 +2,7 @@ require 'pry'
 class FamousPhysicistCliApp::CLI
 
   def call
-    FamousPhysicistCliApp::Physicists.new
+    FamousPhysicistCliApp::Scraper.new.make_physicists
     #FamousPhysicistCliApp::Physicists.new_from_index_page(doc)
 
     puts "
@@ -11,7 +11,6 @@ class FamousPhysicistCliApp::CLI
 
          "
 
-     FamousPhysicistCliApp::Scraper.new.bio
      FamousPhysicistCliApp::Scraper.new.prints_names
      sleep(0.50)
 
@@ -20,16 +19,17 @@ class FamousPhysicistCliApp::CLI
      user_input = gets.strip.to_i
      #sleep(0.50)
 
-     physicists = FamousPhysicistCliApp::Scraper.new.find(user_input)
-     page_profile = FamousPhysicistCliApp::Scraper.new.find_profile_page(user_input)
-     bio = FamousPhysicistCliApp::Scraper.new.find_bio(user_input)
+     physicists = FamousPhysicistCliApp::Physicists.find(user_input)
+     binding.pry 
+     #page_profile = FamousPhysicistCliApp::Scraper.new.find_profile_page(user_input)
+     #bio = FamousPhysicistCliApp::Scraper.new.find_bio(user_input)
 
      puts "*****************************************************************************************************************************************"
      puts "
           "
-     puts "         Physicists:    #{physicists}"
+     puts "         Physicists:    #{physicists.name}"
 
-     puts "         Profile Page:  #{page_profile}"
+     #puts "         Profile Page:  #{page_profile}"
      puts ""
      sleep(0.5)
 

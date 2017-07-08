@@ -12,17 +12,17 @@ class FamousPhysicistCliApp::Physicists
     )
   end
 
-  def initialize(name='scientist', famous_for='great things', url=nil)
+  def initialize(name=nil, famous_for=nil, url=nil)
     @name       = name
     @famous_for = famous_for
     @url        = url
     @@all.push(self)
-binding.pry
   end
 
 
-  def find(input)
-    FamousPhysicistCliApp::Scraper.collects_names[input-1]
+  def self.find(user_input)
+    self.all[user_input-1]
+    binding.pry 
   end
 
   def self.all
