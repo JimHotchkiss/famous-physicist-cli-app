@@ -2,7 +2,7 @@ class FamousPhysicistCliApp::CLI
 
   def call
     FamousPhysicistCliApp::Scraper.new.make_physicists
-    #FamousPhysicistCliApp::Physicists.new_from_index_page(doc)
+
 
     puts "
 
@@ -11,12 +11,12 @@ class FamousPhysicistCliApp::CLI
          "
      FamousPhysicistCliApp::Scraper.new.make_physicists
      FamousPhysicistCliApp::Scraper.new.prints_names
-     #sleep(0.50)
+
 
      puts ""
      puts 'Pick a physicist'
      user_input = gets.strip.to_i
-     #sleep(0.50)
+
 
      physicists = FamousPhysicistCliApp::Physicists.find(user_input)
 
@@ -26,11 +26,15 @@ class FamousPhysicistCliApp::CLI
      puts "Physicists: #{physicists.name}"
 
      puts sprintf("#{physicists.famous_for}")
-     puts ""
-     sleep(0.5)
+     puts "
+          "
 
-     puts "Would you like to learn more about #{physicists.name}? Y/n"
-     user_input = gets.strip.downcase
+     puts "Birth: #{physicists.birth}"
+     puts "Death: #{physicists.death}"
+
+     puts "
+          "
+     puts "Profile:#{physicists.profile}"
 
      another_pick
   end
@@ -42,12 +46,13 @@ class FamousPhysicistCliApp::CLI
       call
     elsif user_input == 'n'
       finish
+    else
+      another_pick
     end
   end
 
   def finish
     puts 'Thanks for visiting.'
   end
-
 
 end
