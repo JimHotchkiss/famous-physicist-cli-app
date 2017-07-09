@@ -23,9 +23,9 @@ class FamousPhysicistCliApp::CLI
      puts "*****************************************************************************************************************************************"
      puts "
           "
-     puts "Physicists: #{physicists.name}"
+     puts "PHYSICISTS: #{physicists.name}"
 
-     puts sprintf("#{physicists.famous_for}")
+     puts "KNOWN FOR: #{physicists.famous_for}"
      puts "
           "
 

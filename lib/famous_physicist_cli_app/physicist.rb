@@ -4,17 +4,18 @@ class FamousPhysicistCliApp::Physicists
 
   @@all = Array.new
 
-  def self.new_from_index_page(doc)
+  def self.new_from_index_page(html)
     self.new(
-    doc.css('div.hfeed').css('h1').text.strip, #name
-    doc.css('table.basicinfo').css('tr')[3].text.strip, #famous_for
-    doc.css('table.basicinfo').css('tr')[0].text.split(' ')[1..-1].join(' '), #birth
-    doc.css('table.basicinfo').css('tr')[1].text.split(' ')[1..-1].join(' '), #death
-    doc.css('div.entry').css('p').text #profile
+    html.css('div.hfeed').css('h1').text.strip, #name
+    #html.css('h2.post-title heading-font').text.strip,
+    html.css('table.basicinfo').css('tr')[3].text.strip, #famous_for
+    html.css('table.basicinfo').css('tr')[0].text.split(' ')[1..-1].join(' '), #birth
+    html.css('table.basicinfo').css('tr')[1].text.split(' ')[1..-1].join(' '), #death
+    html.css('div.entry').css('p').text #profile
     )
   end
 
-  def initialize(name=nil, famous_for=nil, birth=nil, death="nil", profile=nil)
+  def initialize(name=nil, famous_for=nil, birth=nil, death=nil, profile=nil)
     @name       = name
     @famous_for = famous_for
     @birth      = birth

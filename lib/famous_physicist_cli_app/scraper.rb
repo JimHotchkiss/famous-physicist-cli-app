@@ -17,24 +17,39 @@ class FamousPhysicistCliApp::Scraper
     count = 0
     collects_names.each do |each_physicists|
     puts "#{count+=1}. #{each_physicists}"
-    sleep(0.25)
+    sleep(0.1)
     end
   end
 
   def profile_url
     url_array = Array.new
 
-    get_page.css('table.toplist').css('a').each do |link|
-    profile_url = link.attr('href')
+    get_page.css('table.toplist').css('a').each do |phys|
+      #binding.pry
+    profile_url = phys.attr('href')
     url_array.push(profile_url)
     end
     url_array
   end
 
   def make_physicists
-    profile_url.each do |profile|
-      doc = Nokogiri::HTML(open(profile))
-      FamousPhysicistCliApp::Physicists.new_from_index_page(doc)
+    profile_url.each_with_index do |url, i|
+      if i == 5
+        html_i = Nokogiri::HTML(open(url))
+        FamousPhysicistCliApp::Physicists.new_from_index_page(html_i)
+      elsif i == 10
+        html_i = Nokogiri::HTML(open(url))
+        FamousPhysicistCliApp::Physicists.new_from_index_page(html_i)
+      elsif i == 13
+        html_i = Nokogiri::HTML(open(url))
+        FamousPhysicistCliApp::Physicists.new_from_index_page(html_i)
+      elsif i == 17
+        html_i = Nokogiri::HTML(open(url))
+        FamousPhysicistCliApp::Physicists.new_from_index_page(html_i)
+      else
+        html = Nokogiri::HTML(open(url))
+        FamousPhysicistCliApp::Physicists.new_from_index_page(html)
+      end
     end
   end
 
