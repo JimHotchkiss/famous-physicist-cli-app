@@ -2,11 +2,7 @@ class FamousPhysicistCliApp::CLI
 
   def call
 
-    FamousPhysicistCliApp::Physicists.new.doc 
-
     FamousPhysicistCliApp::Scraper.new.make_physicists
-
-
     puts "
 
      ********** The 20 Most Famous Physicists! **********
@@ -37,7 +33,7 @@ class FamousPhysicistCliApp::CLI
 
      puts "
           "
-     puts "Profile:#{physicists.profile}"
+     puts "Profile: #{physicists.profile}"
 
      another_pick
   end
