@@ -1,6 +1,9 @@
 class FamousPhysicistCliApp::CLI
 
   def call
+
+    FamousPhysicistCliApp::Physicists.new.doc 
+
     FamousPhysicistCliApp::Scraper.new.make_physicists
 
 

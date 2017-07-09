@@ -6,8 +6,8 @@ class FamousPhysicistCliApp::Physicists
 
   def self.new_from_index_page(html)
     self.new(
-    html.css('div.hfeed').css('h1').text.strip, #name
-    #html.css('h2.post-title heading-font').text.strip,
+    html.css('div.hfeed').css('h1').text.strip,
+    #html.css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip, #THIS WORKS
     html.css('table.basicinfo').css('tr')[3].text.strip, #famous_for
     html.css('table.basicinfo').css('tr')[0].text.split(' ')[1..-1].join(' '), #birth
     html.css('table.basicinfo').css('tr')[1].text.split(' ')[1..-1].join(' '), #death
@@ -33,5 +33,23 @@ class FamousPhysicistCliApp::Physicists
   def self.all
     @@all
   end
+
+  def profile
+    @doc.each_with_index do |url, i|
+      if i == 5 || 10 || 13 || 17
+        html = Nokogiri::HTML(open(url))
+        @profile = html.css('div.post-page-content').css('p').text
+      else
+        html = Nokogiri::HTML(open(url))
+        @profile = css('div.entry').css('p').text
+        binding.pry
+      end
+    end
+  end
+
+   def doc
+     @doc = FamousPhysicistCliApp::Scraper.new.get_page.css('table.toplist').css('a')
+     binding.pry
+   end
 
 end
