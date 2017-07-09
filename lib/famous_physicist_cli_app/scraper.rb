@@ -37,6 +37,10 @@ class FamousPhysicistCliApp::Scraper
       if i == 5
         html_i = Nokogiri::HTML(open(url))
         FamousPhysicistCliApp::Physicists.new_from_index_page(html_i)
+        name = html_i.css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip #name
+        bio = html_i.css('div.post-page-content').css('p').text
+
+        binding.pry
       elsif i == 10
         html_i = Nokogiri::HTML(open(url))
         FamousPhysicistCliApp::Physicists.new_from_index_page(html_i)
