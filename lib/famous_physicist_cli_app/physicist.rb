@@ -4,7 +4,6 @@ class FamousPhysicistCliApp::Physicists
 
   @@all = Array.new
 
-  #def self.new_from_index_page(html)
   def self.new_from_url
     FamousPhysicistCliApp::Scraper.new.profile_url.each_with_index do |url, i|
        if i == 5
@@ -13,7 +12,6 @@ class FamousPhysicistCliApp::Physicists
          Nokogiri::HTML(open(url)).css('div.post-page-content').css('p').text,
          Nokogiri::HTML(open(url)).css('table.basicinfo').css('tbody').css('td').text
          )
-          #html = Nokogiri::HTML(open(url))
         elsif i == 10
           self.new(
           Nokogiri::HTML(open(url)).css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip,
@@ -33,7 +31,6 @@ class FamousPhysicistCliApp::Physicists
           Nokogiri::HTML(open(url)).css('div.basicinfo').css('td').text
           )
         else
-          #html = Nokogiri::HTML(open(url))
           self.new(
           Nokogiri::HTML(open(url)).css('div.hfeed').css('h1').text.strip,
           Nokogiri::HTML(open(url)).css('div.entry').css('p').text,
@@ -74,22 +71,5 @@ class FamousPhysicistCliApp::Physicists
 binding.pry
   end
 
-  #def profile
-  #  FamousPhysicistCliApp::Scraper.new.profile_url.each_with_index do |url, i|
-  #    if i == 5 || 10 || 13 || 17
-  #      html = Nokogiri::HTML(open(url))
-  #      @name = html.css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip
-  #      @profile = html.css('div.post-page-content').css('p').text
-      #else
-      #  html = Nokogiri::HTML(open(url))
-      #  @name = html.css('div.hfeed').css('h1').text.strip
-      #  @profile = html.css('div.entry').css('p').text
-      #  binding.pry
-
-  #    end
-  #  end
-  #end
-
-
-
+  
 end
