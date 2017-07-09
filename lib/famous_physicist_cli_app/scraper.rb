@@ -32,11 +32,11 @@ class FamousPhysicistCliApp::Scraper
     url_array
   end
 
-  def make_physicists
-    profile_url.each_with_index do |url, i|
-      html = Nokogiri::HTML(open(url))
-      FamousPhysicistCliApp::Physicists.new_from_index_page(html)
-    end
-  end
+  #def make_physicists
+  #  profile_url.each_with_index do |url, i|
+  #    html = Nokogiri::HTML(open(url))
+  #    FamousPhysicistCliApp::Physicists.new_from_index_page(html)
+  #  end
+  #end
 
 end
