@@ -10,29 +10,34 @@ class FamousPhysicistCliApp::Physicists
        if i == 5
          self.new(
          Nokogiri::HTML(open(url)).css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip,
-         Nokogiri::HTML(open(url)).css('div.entry').css('p').text
+         Nokogiri::HTML(open(url)).css('div.post-page-content').css('p').text,
+         Nokogiri::HTML(open(url)).css('table.basicinfo').css('tbody').css('td').text
          )
           #html = Nokogiri::HTML(open(url))
         elsif i == 10
           self.new(
           Nokogiri::HTML(open(url)).css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip,
-          Nokogiri::HTML(open(url)).css('div.entry').css('p').text
+          Nokogiri::HTML(open(url)).css('div.post-page-content').css('p').text,
+          Nokogiri::HTML(open(url)).css('div.basicinfo').css('td').text
           )
         elsif i == 13
           self.new(
           Nokogiri::HTML(open(url)).css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip,
-          Nokogiri::HTML(open(url)).css('div.entry').css('p').text
+          Nokogiri::HTML(open(url)).css('div.post-page-content').css('p').text,
+          Nokogiri::HTML(open(url)).css('div.basicinfo').css('td').text
           )
         elsif i == 17
           self.new(
           Nokogiri::HTML(open(url)).css('div.page-wrapper').css('div#content').css('h2').css('.post-title').text.strip,
-          Nokogiri::HTML(open(url)).css('div.entry').css('p').text
+          Nokogiri::HTML(open(url)).css('div.post-page-content').css('p').text,
+          Nokogiri::HTML(open(url)).css('div.basicinfo').css('td').text
           )
         else
           #html = Nokogiri::HTML(open(url))
           self.new(
           Nokogiri::HTML(open(url)).css('div.hfeed').css('h1').text.strip,
-          Nokogiri::HTML(open(url)).css('div.entry').css('p').text
+          Nokogiri::HTML(open(url)).css('div.entry').css('p').text,
+          Nokogiri::HTML(open(url)).css('table.basicinfo').css('tr')[3].text.strip
           )
         end
       end
@@ -49,7 +54,7 @@ class FamousPhysicistCliApp::Physicists
     #)
   #end
 
-  def initialize(name=nil, profile=nil)#, famous_for=nil, birth=nil, death=nil, profile=nil)
+  def initialize(name=nil, profile=nil, famous_for=nil)#, birth=nil, death=nil, profile=nil)
     @name       = name
     @famous_for = famous_for
     @birth      = birth
@@ -66,6 +71,7 @@ class FamousPhysicistCliApp::Physicists
 
   def self.all
     @@all
+binding.pry
   end
 
   #def profile
