@@ -2,7 +2,6 @@ class FamousPhysicistCliApp::CLI
 
   def call
 
-    #FamousPhysicistCliApp::Scraper.new.make_physicists
     puts "
 
      ********** The 20 Most Famous Physicists! **********
@@ -23,9 +22,9 @@ class FamousPhysicistCliApp::CLI
      puts "*****************************************************************************************************************************************"
      puts "
           "
-     puts "PHYSICISTS: #{physicists.name}"
+     puts "Physicist: #{physicists.name}"
 
-     puts "KNOWN FOR:  #{physicists.famous_for}"
+     puts "#{physicists.famous_for}"
      puts "
           "
 
