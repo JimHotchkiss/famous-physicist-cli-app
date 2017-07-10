@@ -5,13 +5,6 @@ of all time, review pertinent information, like their date of birth, death and w
 they are most famous for, and additionally, you can review a brief biography of the each
 physicist you are interested in researching.  
 
-Simply type ./bin/famous-physicist into your terminal.  A list of the twenty top physicist
-will print out.  Review the list, and pick which physicist you would like learn more about.
-You will prompted to type in your selection.  Type in the number that corresponds to the physicist that interest you.  
-
-After reviewing the information, press any key to continue.  You will be asked asked if you would like to view another physicist, type 'y' to continue and 'n' to end application.  
-
-Enjoy.  
 
 ## Installation
 
@@ -31,7 +24,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply type ./bin/famous-physicist into your terminal.  A list of the twenty top physicist
+will print out.  Review the list, and pick which physicist you would like learn more about.
+You will prompted to type in your selection.  Type in the number that corresponds to the physicist that interest you.  
+
+After reviewing the information, press any key to continue.  You will be asked asked if you would like to view another physicist, type 'y' to continue and 'n' to end application.  
+
+Enjoy.
 
 ## Development
 
