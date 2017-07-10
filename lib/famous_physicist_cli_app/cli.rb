@@ -33,7 +33,9 @@ class FamousPhysicistCliApp::CLI
 
      puts "
           "
-     puts "Profile: #{physicists.profile}"
+     puts "Profile:
+
+#{physicists.profile}"
 
      another_pick
   end
