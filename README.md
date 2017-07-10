@@ -1,8 +1,17 @@
 # FamousPhysicistCliApp
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/famous_physicist_cli_app`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to Famous Physicist Cli App.  In this app you can review the top twenty physicist
+of all time, review pertinent information, like their date of birth, death and what
+they are most famous for, and additionally, you can review a brief biography of the each
+physicist you are interested in researching.  
 
-TODO: Delete this and the text above, and describe your gem
+Simply type ./bin/famous-physicist into your terminal.  A list of the twenty top physicist
+will print out.  Review the list, and pick which physicist you would like learn more about.
+You will prompted to type in your selection.  Type in the number that corresponds to the physicist that interest you.  
+
+After reviewing the information, press any key to continue.  You will be asked asked if you would like to view another physicist, type 'y' to continue and 'n' to end application.  
+
+Enjoy.  
 
 ## Installation
 
@@ -38,4 +47,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'jimbo
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
