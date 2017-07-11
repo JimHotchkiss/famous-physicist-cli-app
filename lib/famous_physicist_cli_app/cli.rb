@@ -2,18 +2,15 @@ class FamousPhysicistCliApp::CLI
 
   def call
 
-    FamousPhysicistCliApp::Physicists.new.open_doc
-
     puts "
 
      ********** The 20 Most Famous Physicists! **********
 
          "
-     #FamousPhysicistCliApp::Scraper.new.make_physicists
-     FamousPhysicistCliApp::Scraper.new.prints_names
+     prints_names
 
      FamousPhysicistCliApp::Physicists.new_from_url
-     #FamousPhysicistCliApp::Scraper.new.make_physicists
+     
      puts ""
      puts 'Pick a physicist'
      user_input = gets.strip.to_i
@@ -21,7 +18,7 @@ class FamousPhysicistCliApp::CLI
 
      physicists = FamousPhysicistCliApp::Physicists.find(user_input)
 
-     puts "*****************************************************************************************************************************************"
+     puts "*********************************************************************"
      puts "
           "
      puts "Physicist: #{physicists.name}"
@@ -40,6 +37,14 @@ class FamousPhysicistCliApp::CLI
 #{physicists.profile}"
 
      another_pick
+  end
+
+  def prints_names
+    count = 0
+    FamousPhysicistCliApp::Scraper.new.collects_names.each do |each_physicists|
+    puts "#{count+=1}. #{each_physicists}"
+    sleep(0.1)
+    end
   end
 
   def another_pick

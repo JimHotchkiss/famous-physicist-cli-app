@@ -13,13 +13,13 @@ class FamousPhysicistCliApp::Scraper
     physicists_array
   end
 
-  def prints_names
-    count = 0
-    collects_names.each do |each_physicists|
-    puts "#{count+=1}. #{each_physicists}"
-    sleep(0.1)
-    end
-  end
+    #def prints_names
+  #   count = 0
+  #  collects_names.each do |each_physicists|
+  #  puts "#{count+=1}. #{each_physicists}"
+  #  sleep(0.1)
+  #  end
+  #end
 
   def profile_url
     url_array = Array.new
