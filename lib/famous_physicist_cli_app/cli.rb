@@ -2,6 +2,8 @@ class FamousPhysicistCliApp::CLI
 
   def call
 
+    FamousPhysicistCliApp::Physicists.new.open_doc
+
     puts "
 
      ********** The 20 Most Famous Physicists! **********
