@@ -10,7 +10,7 @@ class FamousPhysicistCliApp::CLI
      prints_names
 
      FamousPhysicistCliApp::Physicists.new_from_url
-     
+
      puts ""
      puts 'Pick a physicist'
      user_input = gets.strip.to_i
@@ -42,8 +42,8 @@ class FamousPhysicistCliApp::CLI
   def prints_names
     count = 0
     FamousPhysicistCliApp::Scraper.new.collects_names.each do |each_physicists|
-    puts "#{count+=1}. #{each_physicists}"
-    sleep(0.1)
+      puts "#{count+=1}. #{each_physicists}"
+      sleep(0.1)
     end
   end
 
