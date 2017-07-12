@@ -1,7 +1,7 @@
 class FamousPhysicistCliApp::CLI
 
   def call
-
+    FamousPhysicistCliApp::Scraper.new_from_url
     puts "
 
      ********** The 20 Most Famous Physicists! **********
@@ -9,7 +9,7 @@ class FamousPhysicistCliApp::CLI
          "
      prints_names
 
-     FamousPhysicistCliApp::Physicists.new_from_url
+
 
      puts ""
      puts 'Pick a physicist'
@@ -40,9 +40,9 @@ class FamousPhysicistCliApp::CLI
   end
 
   def prints_names
-    count = 0
-    FamousPhysicistCliApp::Scraper.new.collects_names.each do |each_physicists|
-      puts "#{count+=1}. #{each_physicists}"
+    physicists = FamousPhysicistCliApp::Physicists.all
+    physicists.each.with_index(1) do |each_physicists, i|
+      puts "#{i}. #{each_physicists.name}"
       sleep(0.1)
     end
   end
