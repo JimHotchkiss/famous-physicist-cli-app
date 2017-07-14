@@ -23,8 +23,9 @@ class FamousPhysicistCliApp::Physicists
 
   def self.born_before(year)
     @@all.include? do |string|
-      
+
     binding.pry
+    #"Lorem 123 ipsum 456 879".gsub(/[^\d]/, '') this pulls out the numbers.
 
     #return all physicist objects that are born before whatever year is passed in
   end
