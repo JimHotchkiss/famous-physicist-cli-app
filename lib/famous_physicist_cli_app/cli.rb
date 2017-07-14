@@ -17,7 +17,7 @@ class FamousPhysicistCliApp::CLI
 
 
      physicists = FamousPhysicistCliApp::Physicists.find(user_input)
-
+     
      puts "*********************************************************************"
      puts "
           "
@@ -29,6 +29,7 @@ class FamousPhysicistCliApp::CLI
 
      puts "Birth:   #{physicists.birth}"
      puts "Death:   #{physicists.death}"
+     #binding.pry ~> with #include? I can search a string for a number
 
      puts "
           "

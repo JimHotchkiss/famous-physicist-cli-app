@@ -22,11 +22,13 @@ class FamousPhysicistCliApp::Physicists
   end
 
   def self.born_before(year)
+    self.birth
+    binding.pry 
+
     #return all physicist objects that are born before whatever year is passed in
   end
 
   def self.born_after(year)
-
   end
 
 end
