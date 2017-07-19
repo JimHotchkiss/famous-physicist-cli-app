@@ -1,6 +1,7 @@
 class FamousPhysicistCliApp::CLI
 
   def call
+    FamousPhysicistCliApp::Physicists.born_before(1900)
     FamousPhysicistCliApp::Scraper.new_from_url
     puts "
 
@@ -17,7 +18,7 @@ class FamousPhysicistCliApp::CLI
 
 
      physicists = FamousPhysicistCliApp::Physicists.find(user_input)
-     
+
      puts "*********************************************************************"
      puts "
           "
