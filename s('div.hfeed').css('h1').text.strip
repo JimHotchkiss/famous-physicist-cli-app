@@ -1,0 +1,27 @@
+
+[1mFrom:[0m /home/jimbohotchkiss-66302/code/famous-physicist-cli-app/lib/famous_physicist_cli_app/scraper.rb @ line 18 FamousPhysicistCliApp::Scraper.new_from_url:
+
+     [1;34m7[0m: [32mdef[0m [1;36mself[0m.[1;34mnew_from_url[0m
+     [1;34m8[0m:   [1;36mself[0m.new.profile_url.each_with_index [32mdo[0m |url, i|
+     [1;34m9[0m:     doc = [1;34;4mNokogiri[0m::HTML(open(url))
+    [1;34m10[0m:      [32mif[0m i == [1;34m5[0m || i == [1;34m10[0m || i == [1;34m13[0m || i == [1;34m17[0m
+    [1;34m11[0m:        [1;34;4mFamousPhysicistCliApp[0m::[1;34;4mPhysicists[0m.new(
+    [1;34m12[0m:        doc.css([31m[1;31m'[0m[31mdiv.page-wrapper[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mdiv#content[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mh2[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31m.post-title[1;31m'[0m[31m[0m).text.strip, [1;34m#name[0m
+    [1;34m13[0m:        doc.css([31m[1;31m'[0m[31mdiv.post-page-content[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mp[1;31m'[0m[31m[0m).text, [1;34m#profile[0m
+    [1;34m14[0m:        doc.css([31m[1;31m'[0m[31mtable.basicinfo[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mtr td[1;31m'[0m[31m[0m)[[1;34m3[0m].text, [1;34m#famous_for[0m
+    [1;34m15[0m:        doc.css([31m[1;31m'[0m[31mtable.basicinfo[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mtr td[1;31m'[0m[31m[0m)[[1;34m0[0m].text, [1;34m#birth[0m
+    [1;34m16[0m:        doc.css([31m[1;31m'[0m[31mtable.basicinfo[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mtr td[1;31m'[0m[31m[0m)[[1;34m1[0m].text [1;34m#death[0m
+    [1;34m17[0m:        )
+ => [1;34m18[0m:        binding.pry 
+    [1;34m19[0m:       [32melse[0m
+    [1;34m20[0m:         [1;34;4mFamousPhysicistCliApp[0m::[1;34;4mPhysicists[0m.new(
+    [1;34m21[0m:         doc.css([31m[1;31m'[0m[31mdiv.hfeed[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mh1[1;31m'[0m[31m[0m).text.strip,
+    [1;34m22[0m:         doc.css([31m[1;31m'[0m[31mdiv.entry[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mp[1;31m'[0m[31m[0m).text,
+    [1;34m23[0m:         doc.css([31m[1;31m'[0m[31mtable.basicinfo[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mtr[1;31m'[0m[31m[0m)[[1;34m3[0m].text.strip,
+    [1;34m24[0m:         doc.css([31m[1;31m'[0m[31mtable.basicinfo[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mtr[1;31m'[0m[31m[0m)[[1;34m0[0m].text.split([31m[1;31m'[0m[31m [1;31m'[0m[31m[0m)[[1;34m1[0m..[1;34m-1[0m].join([31m[1;31m'[0m[31m [1;31m'[0m[31m[0m),
+    [1;34m25[0m:         doc.css([31m[1;31m'[0m[31mtable.basicinfo[1;31m'[0m[31m[0m).css([31m[1;31m'[0m[31mtr[1;31m'[0m[31m[0m)[[1;34m1[0m].text.split([31m[1;31m'[0m[31m [1;31m'[0m[31m[0m)[[1;34m1[0m..[1;34m-1[0m].join([31m[1;31m'[0m[31m [1;31m'[0m[31m[0m)
+    [1;34m26[0m:         )
+    [1;34m27[0m:       [32mend[0m
+    [1;34m28[0m:     [32mend[0m
+    [1;34m29[0m:   [32mend[0m
+
