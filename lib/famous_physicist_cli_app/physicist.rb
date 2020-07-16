@@ -21,6 +21,10 @@ class FamousPhysicistCliApp::Physicists
     @@all
   end
 
+  def self.clear_physicist
+    @@all.clear
+  end 
+
   def self.born_before(year)
     #return all physicist objects that are born before whatever year is passed in
   end

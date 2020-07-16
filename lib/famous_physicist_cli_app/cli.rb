@@ -51,6 +51,8 @@ class FamousPhysicistCliApp::CLI
     puts 'Would you like another pick, Y/n?'
     user_input = gets.strip.downcase
     if user_input == 'y'
+      FamousPhysicistCliApp::Physicists.clear_physicist
+      
       call
     elsif user_input == 'n'
       finish
